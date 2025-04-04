@@ -3,7 +3,6 @@ from machine import Pin, PWM, ADC
 led = machine.Pin(14, Pin.OUT)
 led2 = machine.Pin(13)
 
-
 fan = machine.Pin(20)
 fan_pwm = PWM(fan)
 led_pwm = PWM(led)
@@ -21,9 +20,7 @@ led3 = machine.Pin(11, Pin.OUT)
 
 while True:
     pot_value = pot.read_u16()
-    #led_pwm.duty_u16(pot_value)
     fan_pwm.duty_u16(pot_value)
-    #print(pot_value)
     if pot_value < 4000:
         led.value(0)
         led2.value(0)
